@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>meta proliferation</title>
+    <link rel="stylesheet" type="text/css" href="https://unli.xyz/awsm_theme_pearl-lusta.css" media="all">
+    <script src="https://cdn.jsdelivr.net/gh/ryangjchandler/spruce@1.1.1/dist/spruce.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.min.js"></script>
+</head>
+
+<body>
+    <div x-data="{}" x-subscribe x-init="$store.settings.t = randomWalk()">
+
+        <div x-html="$store.settings.t.split('\n').join('<br>')"
+            style="margin:auto; height: 85vh;display: grid;place-items: center; font-weight: 600; font-size: xx-large;">
+        </div>
+
+        <button x-on:click="$store.settings.t = randomWalk(); index = 0">Randomize me capt'n</button>
+    </div>
+
+
+    <script>
+
+        const d = ["<a href='./fields.html'>Fields</a>",
+            "<a href='./nouns.html'>Nouns</a>",
+            "<a href='./adjectives.html'>Adjectives</a>",
+            "<a href='./verbs.html'>Verbs</a>",
+            "<a href='./fields-verbs.html'>Field_Verbs</a>",
+            "<a href='./adj-fields.html'>Adj_Fields</a>",
+            "<a href='./van.html'>verb the adjective noun</a>",
+        ]
+
+        const glue = [" "]
+
+        function generatePair() {
+            return d[Math.floor(Math.random() * d.length)]
+        }
+
+        function rollDice(max) {
+            return 1 + Math.floor(Math.random() * max)
+        }
+
+        function randomWalk(length) {
+            return [
+                generatePair(),
+                generatePair(),
+                generatePair(),
+                generatePair(),
+                generatePair(),
+                generatePair(),
+                generatePair(),
+            ].join('\n')
+        }
+
+        Spruce.store('settings', {})
+
+    </script>
+
+</body>
+
+</html>

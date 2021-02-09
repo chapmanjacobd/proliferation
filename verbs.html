@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>perceive proliferation</title>
+    <link rel="stylesheet" type="text/css" href="https://unli.xyz/awsm_theme_pearl-lusta.css" media="all">
+    <script src="https://cdn.jsdelivr.net/gh/ryangjchandler/spruce@1.1.1/dist/spruce.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.min.js"></script>
+</head>
+
+<body>
+    <div x-data="{}" x-subscribe x-init="$store.settings.t = randomWalk()">
+
+        <div x-html="$store.settings.t.split('\n').join('<br>')"
+            style="margin:auto; height: 85vh;display: grid;place-items: center; font-weight: 600; font-size: xx-large;">
+        </div>
+
+        <button x-on:click="$store.settings.t = randomWalk(); index = 0">Randomize me capt'n</button>
+    </div>
+
+
+    <script>
+
+        const verbs = ["go", "do ", "ask", "buy", "cut", "fly", "get", "eat", "own", "pay", "run", "say", "see", "set", "sit", "try", "use", "win", "jog", "fee", "don", "vow", "rap", "tip", "tie", "age", "put", "fix", "ban", "end", "add", "hit", "hop", "fit", "let", "die", "lie", "key", "sob", "lay", "bog", "lag", "bet", "tap", "owe", "aim", "act", "can", "may", "care", "come", "call", "cost", "deal", "face", "deny", "fall", "feel", "find", "form", "give", "grow", "have", "hear", "lend", "help", "like", "hide", "hold", "hope", "live", "look", "love", "make", "mean", "meet", "join", "mind", "keep", "move", "know", "must", "last", "need", "open", "play", "rise", "push", "save", "read", "sell", "send", "tell", "tend", "show", "sing", "turn", "wait", "want", "walk", "take", "talk", "heft", "hash", "cave", "cuff", "peel", "brew", "comb", "cook", "cram", "suck", "tote", "mine", "gush", "slip", "teem", "bend", "pack", "slap", "dead", "root", "pump", "feed", "spot", "wash", "camp", "ride", "free", "soar", "sink", "land", "rang", "deem", "ship", "cast", "date", "bind", "lift", "stay", "pick", "swim", "code", "seal", "hate", "test", "kill", "whip", "rely", "grab", "fear", "pass", "pull", "vote", "hang", "urge", "name", "slow", "seem", "work", "fail", "draw", "lose", "fill", "miss", "lead", "note", "view", "hire", "stop", "base", "vary", "plan", "bear", "lack", "wear", "pale", "harm", "wake", "link", "wish", "jump", "book", "copy", "lean", "snap", "hand", "lure", "trap", "list", "spin", "sign", "drag", "seek", "roll", "moon", "rive", "jerk", "prod", "curb", "hint", "flee", "time", "suit", "stir", "pour", "fuel", "shut", "rush", "fund", "fold", "beat", "cite", "gain", "idle", "bump", "lace", "cede", "skip", "slam", "dump", "rule", "drop", "lock", "undo", "peer", "rate", "will", "carry", "admit", "catch", "cause", "agree", "check", "allow", "clear", "apply", "clean", "argue", "avoid", "begin", "build", "could", "enjoy", "exist", "cross", "dress", "drink", "drive", "learn", "leave", "limit", "laugh", "offer", "order", "point", "reply", "press", "reach", "share", "shoot", "think", "throw ", "touch", "sleep", "train", "smile", "sound", "treat", "speak", "stand", "start", "state", "study", "visit", "watch", "write", "scarf", "clown", "growl", "halve", "harry", "steam", "lunch", "taste", "waive", "whack", "lodge", "water", "abide", "store", "stink", "upset", "model", "price", "shove", "smell", "gauge", "spoil", "equip", "mount", "pitch", "greet", "serve", "scare", "knock", "plant", "worry", "weigh", "trust", "thank", "climb", "seize", "equal", "adopt", "shape", "solve", "alter", "spend", "print", "stick", "enter", "float", "label", "bring", "guess", "boost", "claim", "trade", "issue", "abuse", "break", "close", "fight", "focus", "quote", "prove", "count", "raise", "cover", "refer", "party", "taint", "arise", "occur", "grade", "class", "punch", "smash", "weave", "crowd", "drown", "slide", "stuff", "shake", "draft", "await ", "relie", "waste", "elect", "heave", "pinch", "cloud", "scoff", "range", "decry", "pound", "group", "cheat", "cease", "poise", "exert", "boast", "forge", "rhyme", "found", "marry", "plead", "paint", "teach", "grant", "adapt", "judge", "yield ", "force", "place", "match", "rally", "drain", "utter", "pause", "honor", "blame", "relax", "shift", "flunk", "color", "would", "might", "accept", "affect", "afford", "change", "choose", "answer", "arrive", "become", "create", "expect", "damage", "depend", "finish", "follow", "forget", "happen", "listen", "matter", "inform", "invite", "regard", "relate", "remove", "repeat", "prefer", "report", "result", "return ", "reveal", "record", "reduce", "travel", "supply", "wonder", "labell", "dumple", "wheeze", "bottom", "relish", "digest", "frolic", "infect", "modify", "desert", "equate", "worsen", "pander", "export ", "triple", "abound", "plague", "notify", "thrill", "freeze", "starve", "orient", "stroll", "reform", "resume", "attack", "import ", "gather", "recall", "donate", "debate", "handle", "remark", "launch", "resign", "secure", "adjust", "insure", "double", "govern", "accuse", "spread", "refuse", "charge", "remind", "belong", "exceed", "devote", "oppose", "review", "allege", "figure", "retire", "extend", "manage", "assist", "accord", "assign", "notice", "ensure", "decide", "borrow", "advise", "design", "settle", "impose", "define", "retain", "suffer", "remain", "sample", "impair", "prompt", "expose", "insist", "divide", "assess", "author", "wander", "derive", "please", "locate", "codify", "bumble", "infuse", "molest", "mutate", "rejoin", "ponder", "arouse", "herald", "enrich", "offend", "refute", "defeat", "obsess", "update", "assert", "resist", "shrink", "praise", "mirror", "attend", "attach", "pursue", "evolve", "invest", "school", "submit", "vanish", "detect", "demand", "defend", "target", "render", "invent", "emerge", "expand", "obtain", "appear", "ingest", "depose", "stress", "couple", "affirm", "behave", "enable", "foster", "bother", "commit", "signal", "switch", "intend", "muzzle", "punish", "enroll", "should", "achieve", "collect", "arrange", "consist", "contain", "believe", "control", "correct", "explain", "express", "deliver", "destroy", "develop", "forgive", "imagine", "improve", "measure", "involve", "mention", "release", "perform", "replace", "prepare", "prevent", "produce", "protect", "provide", "receive", "succeed", "suggest", "suppose", "survive", "redress", "crackle", "culture", "flicker", "default ", "dignify", "entrust", "plummet", "revolve", "emulate", "breathe", "afflict", "entitle", "further", "deplete", "recount", "inflate", "fortify", "overlap", "service", "welcome", "fulfill", "violate", "attract", "certify", "acquire", "analyze", "compete", "enhance", "sustain", "combine", "observe", "account", "decline", "impress", "precede", "qualify", "exclude", "support", "display", "confirm", "realize", "process", "abandon", "specify", "compare", "promise", "include", "declare", "promote", "connect", "deserve", "concern", "respond", "reflect", "examine", "require", "approve", "suspect", "propose", "predict", "inspect", "stretch", "recycle", "request", "publish", "squeeze", "feature", "expunge", "bolster", "deflate", "pioneer", "prolong", "unravel", "unwaver", "prosper", "fashion", "discard", "lecture", "gratify", "warrant", "exhibit", "mediate", "explode", "respect", "attempt", "silence", "present", "dismiss", "divorce", "inspire", "advance", "benefit", "explore", "operate", "embrace", "segment", "shorten", "disrupt", "conform", "provoke", "trigger", "convert", "restore", "confess", "testify", "complain", "complete", "continue", "describe", "discover", "identity", "increase", "remember", "restrain", "liberate", "neighbor", "discount", "redefine", "accustom", "mitigate", "distance", "classify", "proclaim", "purchase", "restrict", "struggle", "estimate", "threaten", "indicate", "generate", "surround", "consider", "evaluate", "conclude", "identify", "confound", "separate", "function", "regulate", "decrease", "announce", "controll", "maintain", "downplay", "evacuate", "evidence", "activate", "instruct", "collapse", "allocate", "dissolve", "belittle", "underpin", "confusee", "entrench", "outstrip", "displace", "conspire", "permeate", "construe", "sentence", "decorate", "diagnose", "initiate", "flourish", "research", "motivate", "preserve", "dominate", "overcome", "schedule", "approach", "graduate", "underlie", "transmit", "document", "convince", "question", "register", "organize", "exercise", "reassure", "modulate", "pressure", "contract", "disguise", "transfer", "overlook", "perceive", "disappear", "encourage", "influence", "profiteer", "repackage", "replenish", "transport", "culminate", "implicate", "interfere", "encounter", "accompany", "undermine", "represent", "recommend", "construct", "recognize", "interview", "advertise", "stimulate", "associate", "eliminate", "determine", "circulate", "calculate", "interpret", "oscillate", "disengage", "elucidate", "immigrate", "enlighten", "legislate", "stipulate", "cultivate", "formulate", "attribute", "designate", "introduce", "summarize", "challenge", "integrate", "emphasize", "establish", "discharge", "skyrocket", "guarantee", "contribute", "experience", "understand", "demobilize", "streamline", "manipulate", "compromise", "anticipate", "strengthen", "appreciate", "administer", "complicate", "distribute", "intertwine", "illuminate", "specialize", "compensate", "constitute", "accentuate", "centralize", "hallucinate", "countenance", "appropriate", "manufacture", "incorporate", "acknowledge", "distinguish", "demonstrate", "participate", "encapsulate", "hospitalize", "investigate", "communicate", "re - establish", "uncomprehend", "reinvigorate", "psychoanalyze", "differentiate"]
+
+        const glue = [" "]
+
+        function generatePair() {
+            return '<span>' + verbs[Math.floor(Math.random() * verbs.length)] + glue[Math.floor(Math.random() * glue.length)] + verbs[Math.floor(Math.random() * verbs.length)] + '</span>'
+        }
+
+        function rollDice(max) {
+            return 1 + Math.floor(Math.random() * max)
+        }
+
+        function randomWalk(length) {
+            return [
+                generatePair(),
+                generatePair(),
+                generatePair(),
+                generatePair(),
+                generatePair(),
+                generatePair(),
+                generatePair(),
+            ].join('\n')
+        }
+
+        Spruce.store('settings', {})
+
+    </script>
+
+</body>
+
+</html>

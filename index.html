@@ -4,60 +4,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>meta proliferation</title>
+    <title>Proliferation - Spark Your Imagination</title>
     <link rel="stylesheet" type="text/css" href="https://unli.xyz/awsm_theme_pearl-lusta.css" media="all">
-    <script src="https://cdn.jsdelivr.net/gh/ryangjchandler/spruce@1.1.1/dist/spruce.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(to left, rgba(255, 0, 0, 0.356), rgba(255, 166, 0, 0.178), rgba(255, 255, 0, 0.171), rgba(0, 128, 0, 0.096), rgba(0, 0, 255, 0.185), rgba(76, 0, 130, 0.2), rgba(238, 130, 238, 0.356));
+            color: #fff;
+
+            text-align: center;
+            padding: 1em 0;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+            text-shadow: 1px 1px 2px #000;
+            border-radius: 100% 33% 100% 33%;
+        }
+
+        header p {
+            color: #000;
+            text-shadow: 1px 1px 1px #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        nav {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
-    <div x-data="{}" x-subscribe x-init="$store.settings.t = randomWalk()">
+    <header>
+        <h1>Proliferation</h1>
+        <p>Spark Your Imagination with Creative Word Mashups</p>
+    </header>
 
-        <div x-html="$store.settings.t.split('\n').join('<br>')"
-            style="margin:auto; height: 85vh;display: grid;place-items: center; font-weight: 600; font-size: xx-large;">
-        </div>
+    <div class="container">
+        <p>Feeling stuck in a creative rut? Need fresh ideas to get your imagination flowing again? Welcome to
+            Proliferation, the website that's here to ignite your creativity!</p>
 
-        <button x-on:click="$store.settings.t = randomWalk(); index = 0">Randomize me capt'n</button>
+        <p>We take random words and phrases, and combine them in unexpected and exciting ways. You can
+            select verbs, nouns, adjectives, occupations, and more. Proliferation then draws from extensive word
+            banks to generate one-of-a-kind mashups that will push your thinking in new and exciting directions. Whether
+            you're looking for innovative solutions or simply want to brainstorm something original, let Proliferation
+            suggest fresh perspectives to stretch your imagination.</p>
+
+        <p>Our randomly generated word combinations spark new mental connections and help you discover creative ideas
+            you might not have thought of otherwise. So if you're feeling uninspired, give Proliferation a try and see
+            where our distinctive blend of language takes your thinking.</p>
+
+        <nav>
+            <li>
+                <ul><a href='./nouns.html'>Noun</a></ul>
+                <ul><a href='./adjectives.html'>Adjective</a></ul>
+                <ul><a href='./verbs.html'>Verb</a></ul>
+                <ul><a href='./fields.html'>Occupation</a></ul>
+
+                <ul><a href='./fields-verbs.html'>Occupation Verbs</a></ul>
+                <ul><a href='./adj-fields.html'>Adjective Occupations</a></ul>
+                <ul><a href='./van.html'>Verb the Adjective Noun</a></ul>
+
+                <ul><a href='./matrix.html'>Matrix</a></ul>
+            </li>
+        </nav>
     </div>
-
-
-    <script>
-
-        const d = ["<a href='./fields.html'>Fields</a>",
-            "<a href='./nouns.html'>Nouns</a>",
-            "<a href='./adjectives.html'>Adjectives</a>",
-            "<a href='./verbs.html'>Verbs</a>",
-            "<a href='./fields-verbs.html'>Field_Verbs</a>",
-            "<a href='./adj-fields.html'>Adj_Fields</a>",
-            "<a href='./van.html'>verb the adjective noun</a>",
-        ]
-
-        const glue = [" "]
-
-        function generatePair() {
-            return d[Math.floor(Math.random() * d.length)]
-        }
-
-        function rollDice(max) {
-            return 1 + Math.floor(Math.random() * max)
-        }
-
-        function randomWalk(length) {
-            return [
-                generatePair(),
-                generatePair(),
-                generatePair(),
-                generatePair(),
-                generatePair(),
-                generatePair(),
-                generatePair(),
-            ].join('\n')
-        }
-
-        Spruce.store('settings', {})
-
-    </script>
-
 </body>
 
 </html>

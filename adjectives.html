@@ -30,10 +30,8 @@
         const glue = [" "]
 
         function generatePair() {
-            return '<span>' +
-                adjectives[Math.floor(Math.random() * adjectives.length)] +
-                glue[Math.floor(Math.random() * glue.length)] + adjectives[Math.floor(Math.random() * adjectives.length)] +
-                '</span>'
+            return adjectives[Math.floor(Math.random() * adjectives.length)] +
+                glue[Math.floor(Math.random() * glue.length)] + adjectives[Math.floor(Math.random() * adjectives.length)]
         }
 
         function rollDice(max) {

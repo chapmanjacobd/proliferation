@@ -28,7 +28,7 @@
         const glue = [" "]
 
         function generatePair() {
-            return '<span>' + verbs[Math.floor(Math.random() * verbs.length)] + glue[Math.floor(Math.random() * glue.length)] + verbs[Math.floor(Math.random() * verbs.length)] + '</span>'
+            return verbs[Math.floor(Math.random() * verbs.length)] + glue[Math.floor(Math.random() * glue.length)] + verbs[Math.floor(Math.random() * verbs.length)]
         }
 
         function rollDice(max) {

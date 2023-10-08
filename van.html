@@ -35,15 +35,13 @@
 
 
         function generatePair() {
-            return '<span>'
-                + verbs[Math.floor(Math.random() * verbs.length)]
+            return verbs[Math.floor(Math.random() * verbs.length)]
                 + ' '
                 + ' the '
                 + ' '
                 + adjectives[Math.floor(Math.random() * adjectives.length)]
                 + ' '
                 + nouns[Math.floor(Math.random() * nouns.length)]
-                + '</span>'
         }
 
         function rollDice(max) {
